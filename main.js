@@ -1,13 +1,19 @@
 import { knightMoves } from "./knightMoves.js";
 
-console.log("knightMoves([0,0], [1,2]):");
-console.log(knightMoves([0, 0], [1, 2]));
+function printPath(start, end) {
+    const path = knightMoves(start, end);
+    const moves = path.length - 1;
+    console.log(`> knightMoves([${start}],[${end}])`);
+    console.log(`=> You made it in ${moves} moves! Here's your path:`);
+    for (const pos of path) {
+        console.log(`  [${pos}]`);
+    }
+    console.log("");
+}
 
-console.log("\nknightMoves([0,0], [3,3]):");
-console.log(knightMoves([0, 0], [3, 3]));
-
-console.log("\nknightMoves([3,3], [0,0]):");
-console.log(knightMoves([3, 3], [0, 0]));
-
-console.log("\nknightMoves([0,0], [7,7]):");
-console.log(knightMoves([0, 0], [7, 7]));
+// Pruebas
+printPath([0, 0], [1, 2]);
+printPath([0, 0], [3, 3]);
+printPath([3, 3], [0, 0]);
+printPath([0, 0], [7, 7]);
+printPath([3, 3], [4, 3]);   
